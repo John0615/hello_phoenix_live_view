@@ -18,7 +18,7 @@ defmodule HelloPhoenixLiveViewWeb.Router do
 
     get "/", PageController, :index
 
-    live "/test", TestLive.Index, :index
+    live "/test_live", TestLive
   end
 
   # Other scopes may use custom stacks.
