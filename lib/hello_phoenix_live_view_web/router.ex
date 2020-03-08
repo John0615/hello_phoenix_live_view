@@ -17,6 +17,8 @@ defmodule HelloPhoenixLiveViewWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    live "/test", TestLive.Index, :index
   end
 
   # Other scopes may use custom stacks.
