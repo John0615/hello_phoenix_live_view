@@ -12,6 +12,38 @@ defmodule HelloPhoenixLiveViewWeb.TestLive do
     <h1>Count: <%= @count %></h1>
     <button phx-click="increment">+</button>
     <button phx-click="decrement">-</button>
+    <form class="pure-form pure-form-aligned">
+      <fieldset>
+        <div class="pure-control-group">
+            <label for="name">用户名</label>
+            <input id="name" type="text" placeholder="用户名">
+            <span class="pure-form-message-inline">This is a required field.</span>
+        </div>
+
+        <div class="pure-control-group">
+            <label for="password">密码</label>
+            <input id="password" type="password" placeholder="密码">
+        </div>
+
+        <div class="pure-control-group">
+            <label for="email">邮箱</label>
+            <input id="email" type="email" placeholder="邮箱">
+        </div>
+
+        <div class="pure-control-group">
+            <label for="foo">手机号吗</label>
+            <input id="foo" type="text" placeholder="手机号码">
+        </div>
+
+        <div class="pure-controls">
+          <label for="cb" class="pure-checkbox">
+              <input id="cb" type="checkbox"> 我已阅读条款
+          </label>
+
+          <button type="submit" class="pure-button pure-button-primary">提交</button>
+        </div>
+      </fieldset>
+    </form>
     """
   end
 
