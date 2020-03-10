@@ -2,6 +2,7 @@ defmodule HelloPhoenixLiveViewWeb.TestLive do
   use Phoenix.LiveView
 
   def mount(_params, _session, socket) do
+    # IO.inspect(params, label: "params>>>>> ", pretty: true)
     socket = assign(socket, :count, 0)
     {:ok, socket}
   end
@@ -10,6 +11,7 @@ defmodule HelloPhoenixLiveViewWeb.TestLive do
   def render(assigns) do
     ~L"""
     <h1>Count: <%= @count %></h1>
+    
     <button phx-click="increment">+</button>
     <button phx-click="decrement">-</button>
     <form class="pure-form pure-form-aligned">
@@ -17,7 +19,7 @@ defmodule HelloPhoenixLiveViewWeb.TestLive do
         <div class="pure-control-group">
             <label for="name">用户名</label>
             <input id="name" type="text" placeholder="用户名">
-            <span class="pure-form-message-inline">This is a required field.</span>
+            <span class="pure-form-message-inline input-varning">用户名不能为空!</span>
         </div>
 
         <div class="pure-control-group">
@@ -40,7 +42,7 @@ defmodule HelloPhoenixLiveViewWeb.TestLive do
               <input id="cb" type="checkbox"> 我已阅读条款
           </label>
 
-          <button type="submit" class="pure-button pure-button-primary">提交</button>
+          <button type="button" class="pure-button pure-button-primary">提交</button>
         </div>
       </fieldset>
     </form>
