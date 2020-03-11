@@ -23,8 +23,8 @@ defmodule HelloPhoenixLiveViewWeb do
 
       import Plug.Conn
       import HelloPhoenixLiveViewWeb.Gettext
-      import Phoenix.LiveView.Controller
       alias HelloPhoenixLiveViewWeb.Router.Helpers, as: Routes
+      import Phoenix.LiveView.Controller
     end
   end
 
@@ -42,8 +42,8 @@ defmodule HelloPhoenixLiveViewWeb do
 
       import HelloPhoenixLiveViewWeb.ErrorHelpers
       import HelloPhoenixLiveViewWeb.Gettext
-      import Phoenix.LiveView.Helpers
       alias HelloPhoenixLiveViewWeb.Router.Helpers, as: Routes
+      import Phoenix.LiveView.Helpers
     end
   end
 

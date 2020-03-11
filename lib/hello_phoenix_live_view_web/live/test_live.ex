@@ -1,9 +1,13 @@
 defmodule HelloPhoenixLiveViewWeb.TestLive do
   use Phoenix.LiveView
+  use Phoenix.HTML
 
-  def mount(_params, _session, socket) do
-    # IO.inspect(params, label: "params>>>>> ", pretty: true)
-    socket = assign(socket, :count, 0)
+  def mount(params, _session, socket) do
+    IO.inspect(params, label: "params>>>>> ", pretty: true)
+    socket =
+      socket
+      |> assign(:count, 0)
+      |> assign(:username_validation, true)
     {:ok, socket}
   end
 
@@ -19,7 +23,7 @@ defmodule HelloPhoenixLiveViewWeb.TestLive do
         <div class="pure-control-group">
             <label for="name">用户名</label>
             <input id="name" type="text" placeholder="用户名">
-            <span class="pure-form-message-inline input-varning">用户名不能为空!</span>
+            <span class="pure-form-message-inline <%= if @username_validation == false do "input-varning" else "input-pass" end %> ">用户名不能为空!</span>
         </div>
 
         <div class="pure-control-group">
@@ -41,8 +45,8 @@ defmodule HelloPhoenixLiveViewWeb.TestLive do
           <label for="cb" class="pure-checkbox">
               <input id="cb" type="checkbox"> 我已阅读条款
           </label>
+          <%= submit "Save" %>
 
-          <button type="button" class="pure-button pure-button-primary">提交</button>
         </div>
       </fieldset>
     </form>
@@ -58,6 +62,12 @@ defmodule HelloPhoenixLiveViewWeb.TestLive do
   def handle_event("decrement", _, socket) do
     count = socket.assigns.count - 1
     socket = assign(socket, :count, count)
+    { :noreply, socket }
+  end
+
+  def handle_event("save", _, socket) do
+    # IO.inspect(LiveViewForm, label: "params>>>>>> ", pretty: true)
+    socket = assign(socket, :username_validation, false)
     { :noreply, socket }
   end
 end
