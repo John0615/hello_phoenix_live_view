@@ -1,4 +1,4 @@
-defmodule HelloPhoenixLiveViewWeb.TestLive do
+defmodule HelloPhoenixLiveViewWeb.LiveForm do
   use Phoenix.LiveView
   use Phoenix.HTML
 
@@ -15,7 +15,7 @@ defmodule HelloPhoenixLiveViewWeb.TestLive do
   def render(assigns) do
     ~L"""
     <h1>Count: <%= @count %></h1>
-    
+
     <button phx-click="increment">+</button>
     <button phx-click="decrement">-</button>
     <form class="pure-form pure-form-aligned">
