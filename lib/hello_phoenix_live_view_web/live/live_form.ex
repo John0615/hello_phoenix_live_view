@@ -34,4 +34,11 @@ defmodule HelloPhoenixLiveViewWeb.LiveForm do
     socket = assign(socket, :username_validation, false)
     { :noreply, socket }
   end
+
+
+  def handle_event("add", params, socket) do
+    IO.inspect(params, label: "params>>>>>> ", pretty: true)
+    socket = assign(socket, :username_validation, false)
+    { :noreply, socket }
+  end
 end
