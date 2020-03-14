@@ -1,6 +1,6 @@
 defmodule HelloPhoenixLiveViewWeb.LiveForm do
   use Phoenix.LiveView
-  use Phoenix.HTML
+  # use Phoenix.HTML
   alias HelloPhoenixLiveViewWeb.LiveFormView
 
   def mount(params, _session, socket) do
