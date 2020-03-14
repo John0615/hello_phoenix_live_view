@@ -4,7 +4,7 @@ defmodule HelloPhoenixLiveViewWeb.Router do
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
-    # plug :fetch_flash
+    plug :fetch_flash
     plug :fetch_live_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
@@ -19,7 +19,6 @@ defmodule HelloPhoenixLiveViewWeb.Router do
 
     get "/", PageController, :index
 
-    get "/users", UserController, :index
 
     # live "/test_live", TestLive
   end
