@@ -1,2 +1,2 @@
 <h1>Live Form</h1>
-<%=live_render(@conn, HelloPhoenixLiveViewWeb.LiveForm)%>
+<%=live_render(@conn, HelloPhoenixLiveViewWeb.LiveForm) %>

@@ -19,6 +19,8 @@ defmodule HelloPhoenixLiveViewWeb.Router do
 
     get "/", PageController, :index
 
+    get "/users", UserController, :index
+
     # live "/test_live", TestLive
   end
 
