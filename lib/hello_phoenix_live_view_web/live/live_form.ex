@@ -47,7 +47,7 @@ defmodule HelloPhoenixLiveViewWeb.LiveForm do
         {:stop,
          socket
          |> put_flash(:info, "User updated successfully.")
-         |> redirect(to: Routes.live_path(socket, LiveForm, %User{}))
+         |> redirect(to: Routes.live_path(socket, HelloPhoenixLiveViewWeb.LiveForm, %User{}))
         }
 
       {:error, %Ecto.Changeset{} = changeset} ->
