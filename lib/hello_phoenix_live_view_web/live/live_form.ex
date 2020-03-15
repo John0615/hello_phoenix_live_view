@@ -15,11 +15,11 @@ defmodule HelloPhoenixLiveViewWeb.LiveForm do
     {:ok, socket}
   end
 
-  def handle_params(%{}, url, socket) do
+  def handle_params(_, url, socket) do
     # user = Accounts.get_user!(id)
     {:noreply,
      assign(socket, %{
-       user: %{},
+       user: %User{},
        changeset: Accounts.change_user(%User{})
      })}
   end
@@ -30,10 +30,10 @@ defmodule HelloPhoenixLiveViewWeb.LiveForm do
   end
 
   def handle_event("validate", %{"user" => params}, socket) do
-
+    IO.inspect(params, label: "user==params>>>", pretty: true)
     changeset =
       socket.assigns.user
-      |> HelloPhoenixLiveViewWeb.Accounts.change_user(params)
+      |> Accounts.change_user(params)
       |> Map.put(:action, :update)
 
     {:noreply, assign(socket, changeset: changeset)}
@@ -41,12 +41,14 @@ defmodule HelloPhoenixLiveViewWeb.LiveForm do
 
 
   def handle_event("save", %{"user" => user_params}, socket) do
-    case Accounts.update_user(socket.assigns.user, user_params) do
+    IO.inspect(user_params, label: "user_params<<<", pretty: true)
+    case Accounts.create_user(user_params) do
       {:ok, user} ->
         {:stop,
          socket
          |> put_flash(:info, "User updated successfully.")
-         |> redirect(to: Routes.live_path(socket, UserLive.Show, user))}
+         |> redirect(to: Routes.live_path(socket, LiveForm, %User{}))
+        }
 
       {:error, %Ecto.Changeset{} = changeset} ->
         {:noreply, assign(socket, changeset: changeset)}
