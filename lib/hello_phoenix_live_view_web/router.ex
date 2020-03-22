@@ -18,6 +18,8 @@ defmodule HelloPhoenixLiveViewWeb.Router do
 
     live "/", LiveForm
 
+    live "/login", LoginLive
+
 
     # live "/test_live", TestLive
   end
