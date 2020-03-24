@@ -1,20 +1,21 @@
 <div class="login_page">
   <h1 class="title">少儿英语后台系统</h1>
-  <div class="field">
+  <%= f = form_for @changeset, "#", [phx_change: :validate, phx_submit: :save, phx_hook: "SavedForm"] %>
+    <div class="field">
     <div class="control">
       <input class="input is-primary" type="text" placeholder="用户名">
     </div>
-  </div>
-  <div class="field">
-    <div class="control">
-      <input class="input is-primary" type="password" placeholder="密码">
     </div>
-  </div>
-  <div class="field">
-    <div class="control">
-      <%= submit "登录",class: "button is-fullwidth is-primary", phx_disable_with: "正在登录..." %>
-      <!--<button class="button is-fullwidth is-primary">登录</button>-->
+    <div class="field">
+      <div class="control">
+        <input class="input is-primary" type="password" placeholder="密码">
+      </div>
     </div>
-  </div>
+    <div class="field">
+      <div class="control">
+        <%= submit "登录",class: "button is-fullwidth is-primary", phx_disable_with: "正在登录..." %>
+      </div>
+    </div>
+  </form>
 </div>
 
