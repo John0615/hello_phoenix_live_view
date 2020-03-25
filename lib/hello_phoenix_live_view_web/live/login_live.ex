@@ -30,7 +30,7 @@ defmodule HelloPhoenixLiveViewWeb.LoginLive do
   end
 
   def handle_event("validate", %{"user" => params}, socket) do
-    IO.inspect(params, label: "user==params>>>", pretty: true)
+    IO.inspect(params, label: "login==params>>>", pretty: true)
     changeset =
       socket.assigns.user
       |> Accounts.change_user(params)
@@ -40,7 +40,7 @@ defmodule HelloPhoenixLiveViewWeb.LoginLive do
   end
 
 
-  def handle_event("save", %{"user" => user_params}, socket) do
+  def handle_event("login", %{"user" => user_params}, socket) do
     IO.inspect(user_params, label: "user_params<<<", pretty: true)
     case Accounts.create_user(user_params) do
       {:ok, user} ->
