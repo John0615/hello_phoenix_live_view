@@ -34,6 +34,7 @@ defmodule HelloPhoenixLiveViewWeb.LoginLive do
     changeset =
       socket.assigns.user
       |> Accounts.change_user(params)
+      |> IO.inspect(label: "11111111>>>>>>", pretty: true)
       |> Map.put(:action, :update)
 
     {:noreply, assign(socket, changeset: changeset)}
