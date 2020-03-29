@@ -10,9 +10,7 @@
     <div class="field">
       <div class="control">
         <%= password_input f, :password,  value: input_value(f, :password), phx_debounce: "blur",  class: "input is-primary", placeholder: "密码" %>
-        <%= if @password_null do %>
-          <%= error_tag f, :password %>
-        <% end %>
+        <%= error_tag f, :password %>
       </div>
     </div>
     <div class="field">
