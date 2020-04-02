@@ -20,6 +20,8 @@ defmodule HelloPhoenixLiveViewWeb.Router do
 
     live "/login", LoginLive
 
+    live "/dashboard", DashboardLive
+
 
     # live "/test_live", TestLive
   end

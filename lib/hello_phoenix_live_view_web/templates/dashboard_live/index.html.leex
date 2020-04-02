@@ -1,0 +1,23 @@
+<div class="login_page">
+  <h1 class="title">少儿英语后台系统</h1>
+  <%= f = form_for @changeset, "#", [phx_change: :validate, phx_submit: :login] %>
+    <div class="field">
+      <div class="control">
+        <%= text_input f, :name,  value: input_value(f, :name), phx_debounce: "blur",  class: "input is-primary", placeholder: "用户名" %>
+        <%= error_tag f, :name %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <%= password_input f, :password,  value: input_value(f, :password), phx_debounce: "blur",  class: "input is-primary", placeholder: "密码" %>
+        <%= error_tag f, :password %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <%= submit "登录",class: "button is-fullwidth is-primary", phx_disable_with: "正在登录..." %>
+      </div>
+    </div>
+  </form>
+</div>
+
