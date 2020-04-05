@@ -11,17 +11,19 @@ defmodule HelloPhoenixLiveViewWeb.DashboardLive do
     socket =
       socket
       |> assign(:count, 0)
+      |> assign(:content, 1111122222)
     {:ok, socket}
   end
 
-  def handle_params(_, url, socket) do
-    # user = Accounts.get_user!(id)
-    {:noreply,
-     assign(socket, %{
-       user: %User{},
-       changeset: Accounts.change_user(%User{})
-     })}
-  end
+  # @spec handle_params(any, any, Phoenix.LiveView.Socket.t()) :: {:noreply, any}
+  # def handle_params(_, url, socket) do
+  #   # user = Accounts.get_user!(id)
+  #   {:noreply,
+  #    assign(socket, %{
+  #      user: %User{},
+  #      changeset: Accounts.change_user(%User{})
+  #    })}
+  # end
 
 
   def render(assigns) do
