@@ -67,4 +67,73 @@ defmodule HelloPhoenixLiveView.AccountsTest do
       assert %Ecto.Changeset{} = Accounts.change_user(user)
     end
   end
+
+  describe "menu" do
+    alias HelloPhoenixLiveView.Accounts.Menu
+
+    @valid_attrs %{icon: "some icon", id: 42, isAuth: 42, pid: 42, title: "some title", url: "some url"}
+    @update_attrs %{icon: "some updated icon", id: 43, isAuth: 43, pid: 43, title: "some updated title", url: "some updated url"}
+    @invalid_attrs %{icon: nil, id: nil, isAuth: nil, pid: nil, title: nil, url: nil}
+
+    def menu_fixture(attrs \\ %{}) do
+      {:ok, menu} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Accounts.create_menu()
+
+      menu
+    end
+
+    test "list_menu/0 returns all menu" do
+      menu = menu_fixture()
+      assert Accounts.list_menu() == [menu]
+    end
+
+    test "get_menu!/1 returns the menu with given id" do
+      menu = menu_fixture()
+      assert Accounts.get_menu!(menu.id) == menu
+    end
+
+    test "create_menu/1 with valid data creates a menu" do
+      assert {:ok, %Menu{} = menu} = Accounts.create_menu(@valid_attrs)
+      assert menu.icon == "some icon"
+      assert menu.id == 42
+      assert menu.isAuth == 42
+      assert menu.pid == 42
+      assert menu.title == "some title"
+      assert menu.url == "some url"
+    end
+
+    test "create_menu/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Accounts.create_menu(@invalid_attrs)
+    end
+
+    test "update_menu/2 with valid data updates the menu" do
+      menu = menu_fixture()
+      assert {:ok, %Menu{} = menu} = Accounts.update_menu(menu, @update_attrs)
+      assert menu.icon == "some updated icon"
+      assert menu.id == 43
+      assert menu.isAuth == 43
+      assert menu.pid == 43
+      assert menu.title == "some updated title"
+      assert menu.url == "some updated url"
+    end
+
+    test "update_menu/2 with invalid data returns error changeset" do
+      menu = menu_fixture()
+      assert {:error, %Ecto.Changeset{}} = Accounts.update_menu(menu, @invalid_attrs)
+      assert menu == Accounts.get_menu!(menu.id)
+    end
+
+    test "delete_menu/1 deletes the menu" do
+      menu = menu_fixture()
+      assert {:ok, %Menu{}} = Accounts.delete_menu(menu)
+      assert_raise Ecto.NoResultsError, fn -> Accounts.get_menu!(menu.id) end
+    end
+
+    test "change_menu/1 returns a menu changeset" do
+      menu = menu_fixture()
+      assert %Ecto.Changeset{} = Accounts.change_menu(menu)
+    end
+  end
 end
