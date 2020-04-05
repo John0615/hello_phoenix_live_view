@@ -2,10 +2,10 @@
 <div class="wrapper">
 
   <!--导航栏-->
-  <%= live_component @socket, NavComponent, content: @content %>
+  <%= live_component @socket, NavComponent, menu_list: @menu_list %>
   <!--导航栏-->
   <!--侧边栏菜单-->
-  <%= live_component @socket, AsideMenuComponent, content: @content %>
+  <%= live_component @socket, AsideMenuComponent, menu_list: @menu_list %>
   <!--侧边栏菜单-->
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

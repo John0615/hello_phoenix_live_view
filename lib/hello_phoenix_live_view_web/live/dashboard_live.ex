@@ -6,12 +6,13 @@ defmodule HelloPhoenixLiveViewWeb.DashboardLive do
   alias HelloPhoenixLiveView.Accounts
   alias HelloPhoenixLiveView.Accounts.User
 
-  def mount(params, _session, socket) do
-    IO.inspect(params, label: "params>>>>> ", pretty: true)
+  def mount(_params, _session, socket) do
+    menu_list = Accounts.list_menu()
+    IO.inspect(menu_list, label: "menu>>>>> ", pretty: true)
     socket =
       socket
       |> assign(:count, 0)
-      |> assign(:content, 1111122222)
+      |> assign(:menu_list, menu_list)
     {:ok, socket}
   end
 
