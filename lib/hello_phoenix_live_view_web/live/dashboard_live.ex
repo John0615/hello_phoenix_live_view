@@ -7,24 +7,11 @@ defmodule HelloPhoenixLiveViewWeb.DashboardLive do
   alias HelloPhoenixLiveView.Accounts.User
 
   def mount(_params, _session, socket) do
-    menu_list = Accounts.list_menu()
-    IO.inspect(menu_list, label: "menu>>>>> ", pretty: true)
     socket =
       socket
       |> assign(:count, 0)
-      |> assign(:menu_list, menu_list)
     {:ok, socket}
   end
-
-  # @spec handle_params(any, any, Phoenix.LiveView.Socket.t()) :: {:noreply, any}
-  # def handle_params(_, url, socket) do
-  #   # user = Accounts.get_user!(id)
-  #   {:noreply,
-  #    assign(socket, %{
-  #      user: %User{},
-  #      changeset: Accounts.change_user(%User{})
-  #    })}
-  # end
 
 
   def render(assigns) do
@@ -58,11 +45,11 @@ defmodule HelloPhoenixLiveViewWeb.DashboardLive do
     end
   end
 
-  def handle_event("select_menu", params, socket) do
-    IO.inspect(params, label: "2222222>>>>>>", pretty: true)
-    count = socket.assigns.count + 1
-    socket = assign(socket, :count, count)
-    { :noreply, socket }
+  def handle_info({:selected_menu, card}, socket) do
+    # update the list of cards in the socket
+    IO.inspect(card, label: "card<<<", pretty: true)
+
+    {:noreply, socket}
   end
 
   def handle_event("increment", _, socket) do

@@ -1,6 +1,15 @@
 defmodule AsideMenuComponent do
   use Phoenix.LiveComponent
+  alias HelloPhoenixLiveView.Accounts
 
+  def mount(socket) do
+    menu_list = Accounts.list_menu()
+    IO.inspect(menu_list, label: "menu1111>>>>> ", pretty: true)
+    socket =
+      socket
+      |> assign(:menu_list, menu_list)
+    {:ok, socket}
+  end
 
   def render(assigns) do
     ~L"""
@@ -39,11 +48,10 @@ defmodule AsideMenuComponent do
     """
   end
 
-  # def handle_event("select_menu", params, socket) do
-  #   IO.inspect(params, label: "77777777>>>>>>", pretty: true)
-  #   count = socket.assigns.count + 1
-  #   socket = assign(socket, :count, count)
-  #   { :noreply, socket }
-  # end
+  def handle_event("select_menu", params, socket) do
+    IO.inspect(params, label: "77777777>>>>>>", pretty: true)
+    send self(), {:selected_menu, params}
+    { :noreply, socket }
+  end
 
 end
