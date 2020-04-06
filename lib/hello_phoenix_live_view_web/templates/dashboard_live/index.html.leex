@@ -2,14 +2,23 @@
 <div class="wrapper">
 
   <!--导航栏-->
-  <%= live_component @socket, NavComponent %>
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <%= live_component @socket, NavComponent %>
+  </nav>
   <!--导航栏-->
   <!--侧边栏菜单-->
-  <%= live_component @socket, AsideMenuComponent, id: :menu %>
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <%= live_component @socket, AsideMenuComponent, id: :menu %>
+  </aside>
   <!--侧边栏菜单-->
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <p style="text-align:center;">少儿英语后台管理系统</p>
+    <%=if @content=="dashboard" do %>
+    <%= live_component @socket, DashboardComponent %>
+    <%=end %>
+    <%=if @content=="order_list" do %>
+    <%= live_component @socket, OrderListComponent %>
+    <%=end %>
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">

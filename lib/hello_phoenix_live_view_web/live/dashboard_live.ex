@@ -9,7 +9,7 @@ defmodule HelloPhoenixLiveViewWeb.DashboardLive do
   def mount(_params, _session, socket) do
     socket =
       socket
-      |> assign(:count, 0)
+      |> assign(:content, "dashboard")
     {:ok, socket}
   end
 
@@ -48,7 +48,7 @@ defmodule HelloPhoenixLiveViewWeb.DashboardLive do
   def handle_info({:selected_menu, card}, socket) do
     # update the list of cards in the socket
     IO.inspect(card, label: "card<<<", pretty: true)
-
+    socket = assign(socket, :content, card["url"])
     {:noreply, socket}
   end
 
