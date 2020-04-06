@@ -58,12 +58,12 @@ defmodule HelloPhoenixLiveViewWeb.DashboardLive do
     end
   end
 
-  # def handle_event("select_menu", params, socket) do
-  #   IO.inspect(params, label: "2222222>>>>>>", pretty: true)
-  #   count = socket.assigns.count + 1
-  #   socket = assign(socket, :count, count)
-  #   { :noreply, socket }
-  # end
+  def handle_event("select_menu", params, socket) do
+    IO.inspect(params, label: "2222222>>>>>>", pretty: true)
+    count = socket.assigns.count + 1
+    socket = assign(socket, :count, count)
+    { :noreply, socket }
+  end
 
   def handle_event("increment", _, socket) do
     count = socket.assigns.count + 1

@@ -24,7 +24,7 @@ defmodule AsideMenuComponent do
                    with font-awesome or any other icon font library -->
               <%= for item <- @menu_list do %>
                 <li class="nav-item">
-                  <a href="#" phx-click="select_menu" phx-target="#menu_<%= item.id %>" id="menu_<%= item.id %>" class="nav-link">
+                  <a href="#" phx-click="select_menu" phx-value-url="<%= item.url %>" phx-target="#menu_<%= item.id %>" id="menu_<%= item.id %>" class="nav-link">
                     <i class="nav-icon far <%= item.icon %>"></i>
                     <p><%= item.title %></p>
                   </a>
