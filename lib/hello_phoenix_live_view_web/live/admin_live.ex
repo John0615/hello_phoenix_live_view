@@ -1,6 +1,6 @@
-defmodule HelloPhoenixLiveViewWeb.DashboardLive do
+defmodule HelloPhoenixLiveViewWeb.AdminLive do
   use Phoenix.LiveView
-  alias HelloPhoenixLiveViewWeb.DashboardLiveView
+  alias HelloPhoenixLiveViewWeb.AdminLiveView
 
   alias HelloPhoenixLiveViewWeb.Router.Helpers, as: Routes
   alias HelloPhoenixLiveView.Accounts
@@ -15,7 +15,7 @@ defmodule HelloPhoenixLiveViewWeb.DashboardLive do
 
 
   def render(assigns) do
-    DashboardLiveView.render("index.html", assigns)
+    AdminLiveView.render("index.html", assigns)
   end
 
   def handle_event("validate", %{"user" => params}, socket) do
