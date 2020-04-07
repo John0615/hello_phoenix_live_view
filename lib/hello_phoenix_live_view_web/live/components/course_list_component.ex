@@ -1,7 +1,13 @@
 defmodule CourseListComponent do
   use Phoenix.LiveComponent
+  alias HelloPhoenixLiveView.Course
 
   def mount(socket) do
+    course_list = Course.list_course_list()
+    IO.inspect(course_list, label: "course_list>>>>> ", pretty: true)
+    socket =
+      socket
+      |> assign(:course_list, course_list)
     {:ok, socket}
   end
 
@@ -21,53 +27,23 @@ defmodule CourseListComponent do
                   <table class="table table-bordered">
                     <thead>
                       <tr>
-                        <th style="width: 10px">#</th>
+                        <th style="width: 10px">ID</th>
                         <th>课程名称</th>
                         <th>课程价格</th>
-                        <th style="width: 40px">Label</th>
+                        <th>课时</th>
+                        <th>简介</th>
                       </tr>
                     </thead>
                     <tbody>
+                      <%= for item <- @course_list do %>
                       <tr>
-                        <td>1.</td>
-                        <td>Update software</td>
-                        <td>
-                          <div class="progress progress-xs">
-                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                          </div>
-                        </td>
-                        <td><span class="badge bg-danger">55%</span></td>
+                        <td><%= item.id %></td>
+                        <td><%= item.course_name %></td>
+                        <td><%= item.price %></td>
+                        <td><%= item.class_hour %></td>
+                        <td><%= item.desc %></td>
                       </tr>
-                      <tr>
-                        <td>2.</td>
-                        <td>Clean database</td>
-                        <td>
-                          <div class="progress progress-xs">
-                            <div class="progress-bar bg-warning" style="width: 70%"></div>
-                          </div>
-                        </td>
-                        <td><span class="badge bg-warning">70%</span></td>
-                      </tr>
-                      <tr>
-                        <td>3.</td>
-                        <td>Cron job running</td>
-                        <td>
-                          <div class="progress progress-xs progress-striped active">
-                            <div class="progress-bar bg-primary" style="width: 30%"></div>
-                          </div>
-                        </td>
-                        <td><span class="badge bg-primary">30%</span></td>
-                      </tr>
-                      <tr>
-                        <td>4.</td>
-                        <td>Fix and squish bugs</td>
-                        <td>
-                          <div class="progress progress-xs progress-striped active">
-                            <div class="progress-bar bg-success" style="width: 90%"></div>
-                          </div>
-                        </td>
-                        <td><span class="badge bg-success">90%</span></td>
-                      </tr>
+                      <%= end  %>
                     </tbody>
                   </table>
                 </div>
