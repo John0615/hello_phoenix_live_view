@@ -3,7 +3,6 @@ defmodule HelloPhoenixLiveView.Repo.Migrations.CreateCourseList do
 
   def change do
     create table(:course_list) do
-      add :id, :integer
       add :course_name, :string
       add :course_type, :string
       add :course_level, :string

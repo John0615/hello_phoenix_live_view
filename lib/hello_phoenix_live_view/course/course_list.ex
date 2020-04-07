@@ -10,7 +10,6 @@ defmodule HelloPhoenixLiveView.Course.CourseList do
     field :desc, :string
     field :detail, :string
     field :each_class_hour, :integer
-    field :id, :integer
     field :is_deleted, :integer
     field :overall_rate, :integer
     field :price, :integer
