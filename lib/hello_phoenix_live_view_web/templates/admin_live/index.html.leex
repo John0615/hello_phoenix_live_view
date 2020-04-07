@@ -8,7 +8,7 @@
   <!--导航栏-->
   <!--侧边栏菜单-->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <%= live_component @socket, AsideMenuComponent, id: :menu %>
+    <%= live_component @socket, AsideMenuComponent,content: @content, id: :menu %>
   </aside>
   <!--侧边栏菜单-->
   <!-- Content Wrapper. Contains page content -->
@@ -20,7 +20,7 @@
     <%= live_component @socket, OrderListComponent %>
     <%=end %>
     <%=if @content=="course_list" do %>
-    <%= live_component @socket, CourseListComponent %>
+    <%= live_component @socket, CourseListComponent%>
     <%=end %>
   </div>
   <!-- /.content-wrapper -->
