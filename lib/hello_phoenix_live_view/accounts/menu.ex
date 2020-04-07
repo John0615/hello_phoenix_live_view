@@ -4,7 +4,7 @@ defmodule HelloPhoenixLiveView.Accounts.Menu do
 
   schema "menu" do
     field :icon, :string
-    field :isAuth, :integer
+    field :is_auth, :integer
     field :pid, :integer
     field :title, :string
     field :url, :string

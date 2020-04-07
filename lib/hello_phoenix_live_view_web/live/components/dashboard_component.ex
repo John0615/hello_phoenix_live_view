@@ -8,7 +8,7 @@ defmodule DashboardComponent do
 
   def render(assigns) do
     ~L"""
-      <p style="text-align: center;">少儿英语后台管理系统</p>
+      <p style="text-align: center;">后台管理系统</p>
     """
   end
 

@@ -7,7 +7,7 @@ defmodule HelloPhoenixLiveView.Repo.Migrations.CreateMenu do
       add :title, :string
       add :icon, :string
       add :url, :string
-      add :isAuth, :integer
+      add :is_auth, :integer
 
       timestamps()
     end
