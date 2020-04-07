@@ -19,6 +19,9 @@
     <%=if @content=="order_list" do %>
     <%= live_component @socket, OrderListComponent %>
     <%=end %>
+    <%=if @content=="course_list" do %>
+    <%= live_component @socket, CourseListComponent %>
+    <%=end %>
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
