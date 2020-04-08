@@ -20,7 +20,7 @@
     <%= live_component @socket, OrderListComponent %>
     <%=end %>
     <%=if @content=="course_list" do %>
-    <%= live_component @socket, CourseListComponent%>
+    <%= live_component @socket, CourseListComponent, id: :course_list%>
     <%=end %>
   </div>
   <!-- /.content-wrapper -->

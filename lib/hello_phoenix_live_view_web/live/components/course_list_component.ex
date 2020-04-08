@@ -13,7 +13,6 @@ defmodule CourseListComponent do
 
   def render(assigns) do
     ~L"""
-    <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
           <div class="row">
@@ -24,6 +23,10 @@ defmodule CourseListComponent do
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
+                  <div class="col-md-1 col-sm-6 col-12">
+                    <button phx-click="add_course" type="button" class="btn btn-block btn-success">新增课程</button>
+                  </div>
+                  <br/>
                   <table class="table table-bordered">
                     <thead>
                       <tr>
@@ -63,8 +66,23 @@ defmodule CourseListComponent do
           </div>
         </div><!-- /.container-fluid -->
       </section>
-      <!-- /.content -->
     """
+  end
+
+
+  def handle_event("add_course",_, socket) do
+    IO.inspect(66666666, label: "66666666<<<", pretty: true)
+    # case Accounts.create_user(user_params) do
+    #   {:ok, user} ->
+    #     {:stop,
+    #      socket
+    #      |> put_flash(:info, "User updated successfully.")
+    #      |> redirect(to: Routes.live_path(socket, HelloPhoenixLiveViewWeb.LiveForm, %User{}))
+    #     }
+
+    #   {:error, %Ecto.Changeset{} = changeset} ->
+    #     {:noreply, assign(socket, changeset: changeset)}
+    # end
   end
 
 end
