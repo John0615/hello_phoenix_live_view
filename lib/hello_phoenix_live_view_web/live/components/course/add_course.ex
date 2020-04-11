@@ -10,7 +10,6 @@ defmodule AddCourseComponent do
 
   def render(assigns) do
     ~L"""
-    <section class="content">
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
@@ -52,7 +51,6 @@ defmodule AddCourseComponent do
           <input type="submit" value="Create new Porject" class="btn btn-success float-right">
         </div>
       </div>
-    </section>
     """
   end
 
