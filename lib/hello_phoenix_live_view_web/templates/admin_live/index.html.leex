@@ -8,18 +8,18 @@
   <!--导航栏-->
   <!--侧边栏菜单-->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <%= live_component @socket, AsideMenuComponent,content: @content, id: :menu %>
+    <%= live_component @socket, AsideMenuComponent,content: @init_status.content, id: :menu %>
   </aside>
   <!--侧边栏菜单-->
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <%=if @content=="dashboard" do %>
+    <%=if @init_status.content=="dashboard" do %>
     <%= live_component @socket, DashboardComponent %>
     <%=end %>
-    <%=if @content=="order_list" do %>
+    <%=if @init_status.content=="order_list" do %>
     <%= live_component @socket, OrderListComponent %>
     <%=end %>
-    <%=if @content=="course_list" do %>
+    <%=if @init_status.content=="course_list" do %>
     <%= live_component @socket, CourseComponent, id: :course %>
     <%=end %>
   </div>

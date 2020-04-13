@@ -7,9 +7,15 @@ defmodule HelloPhoenixLiveViewWeb.AdminLive do
   alias HelloPhoenixLiveView.Accounts.User
 
   def mount(_params, _session, socket) do
+    init_status = %{
+      content: "dashboard",
+      course: %{
+        show_page: "course_list"
+      }
+    }
     socket =
       socket
-      |> assign(:content, "dashboard")
+      |> assign(:init_status, init_status)
     {:ok, socket}
   end
 
@@ -47,8 +53,8 @@ defmodule HelloPhoenixLiveViewWeb.AdminLive do
 
   def handle_info({:selected_menu, card}, socket) do
     # update the list of cards in the socket
-    IO.inspect(card, label: "card<<<", pretty: true)
-    socket = assign(socket, :content, card["url"])
+    IO.inspect(socket, label: "socket<<<", pretty: true)
+    socket = assign(socket, :init_status, Map.put(socket.assigns.init_status, :content, card["url"]))
     {:noreply, socket}
   end
 
