@@ -70,7 +70,7 @@ defmodule CourseListComponent do
 
 
   def handle_event("show_create_course", params, socket) do
-    IO.inspect(params, label: "888888>>>>>>", pretty: true)
+    IO.inspect(socket, label: "888888>>>>>>", pretty: true)
     send self(), {:show_create_course_page, params}
     { :noreply, socket }
   end

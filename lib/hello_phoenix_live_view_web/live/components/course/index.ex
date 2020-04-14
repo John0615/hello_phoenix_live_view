@@ -12,10 +12,10 @@ defmodule CourseComponent do
   def render(assigns) do
     ~L"""
       <section class="content">
-        <%=if @show_page=="add_course" do %>
+        <%=if @course_status.show_page=="add_course" do %>
         <%= live_component @socket, AddCourseComponent, id: :create_course %>
         <%=end %>
-        <%=if @show_page=="course_list" do %>
+        <%=if @course_status.show_page=="course_list" do %>
         <%= live_component @socket, CourseListComponent, id: :course_list %>
         <%=end %>
       </section>
@@ -23,11 +23,6 @@ defmodule CourseComponent do
   end
 
 
-  def handle_info({:show_create_course_page, params}, socket) do
-    # update the list of cards in the socket
-    IO.inspect(params, label: "params<<<", pretty: true)
-    socket = assign(socket, :show_page, params["show-page"])
-    {:noreply, socket}
-  end
+
 
 end

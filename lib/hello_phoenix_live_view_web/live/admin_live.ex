@@ -58,12 +58,13 @@ defmodule HelloPhoenixLiveViewWeb.AdminLive do
     {:noreply, socket}
   end
 
-  def handle_info({:show_create_course_page, card}, socket) do
+  def handle_info({:show_create_course_page, _}, socket) do
     # update the list of cards in the socket
     IO.inspect(socket, label: "socket<<<", pretty: true)
     course_status = socket.assigns.init_status.course
     new_course_status = Map.put(course_status, :show_page, "add_course")
-    socket = assign(socket, :init_status, Map.put(socket.assigns.init_status, :course_status, new_course_status))
+    IO.inspect(new_course_status, label: "new_course_status<<<", pretty: true)
+    socket = assign(socket, :init_status, Map.put(socket.assigns.init_status, :course, new_course_status))
     {:noreply, socket}
   end
 
