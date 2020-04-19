@@ -15,28 +15,40 @@ defmodule AddCourseComponent do
           <div class="card card-primary">
             <div class="card-body">
               <div class="form-group">
-                <label for="inputName">Project Name</label>
+                <label for="inputName">课程名称</label>
                 <input type="text" id="inputName" class="form-control">
               </div>
               <div class="form-group">
-                <label for="inputDescription">Project Description</label>
+                <label for="inputDescription">课程简介</label>
                 <textarea id="inputDescription" class="form-control" rows="4"></textarea>
               </div>
               <div class="form-group">
-                <label for="inputStatus">Status</label>
+                <label for="inputStatus">课程类型</label>
                 <select class="form-control custom-select">
-                  <option selected disabled>Select one</option>
-                  <option>On Hold</option>
-                  <option>Canceled</option>
-                  <option>Success</option>
+                  <option selected disabled>请选择</option>
+                  <option>一对一</option>
+                  <option>小班</option>
+                  <option>免费</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="inputClientCompany">Client Company</label>
+                <label for="inputClientCompany">课时</label>
                 <input type="text" id="inputClientCompany" class="form-control">
               </div>
               <div class="form-group">
-                <label for="inputProjectLeader">Project Leader</label>
+                <label for="inputProjectLeader">课程级别</label>
+                <input type="text" id="inputProjectLeader" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="inputProjectLeader">课程详情</label>
+                <input type="text" id="inputProjectLeader" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="inputProjectLeader">课程单价</label>
+                <input type="text" id="inputProjectLeader" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="inputProjectLeader">缩略图</label>
                 <input type="text" id="inputProjectLeader" class="form-control">
               </div>
             </div>
