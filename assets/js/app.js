@@ -3,6 +3,13 @@
 // its own CSS file.
 import css from "../css/app.css"
 import "admin-lte/dist/css/adminlte.min.css"
+// import E from 'wangeditor'
+let Hooks = {}
+Hooks.InfiniteScroll = {
+  mounted(){
+    alert()
+  }
+}
 // webpack automatically bundles all modules in your
 // entry points. Those entry points can be configured
 // in "webpack.config.js".
@@ -20,5 +27,5 @@ import LiveSocket from "phoenix_live_view"
 
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content");
-let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}});
+let liveSocket = new LiveSocket("/live", Socket, {hooks: Hooks,params: {_csrf_token: csrfToken}});
 liveSocket.connect()
