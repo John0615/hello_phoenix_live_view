@@ -9,7 +9,8 @@
     "admin-lte": "^3.0.4",
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",
-    "phoenix_live_view": "file:../deps/phoenix_live_view"
+    "phoenix_live_view": "file:../deps/phoenix_live_view",
+    "wangeditor": "^3.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
