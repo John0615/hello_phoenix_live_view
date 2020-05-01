@@ -4,8 +4,9 @@
 import css from "../css/app.css"
 import "admin-lte/dist/css/adminlte.min.css"
 import { wang_edit_hook } from './wang_edit_hook'
+import { uploadImage } from './upload_image'
 let Hooks = {}
-Object.assign(Hooks, { InfiniteScroll: wang_edit_hook })
+Object.assign(Hooks, { InfiniteScroll: wang_edit_hook, uploadImage })
 // webpack automatically bundles all modules in your
 // entry points. Those entry points can be configured
 // in "webpack.config.js".

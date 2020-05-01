@@ -10,7 +10,7 @@ defmodule AddCourseComponent do
 
   def render(assigns) do
     ~L"""
-      <div class="row" phx-hook="InfiniteScroll">
+      <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
             <div class="card-body">
@@ -39,7 +39,7 @@ defmodule AddCourseComponent do
                 <label for="inputProjectLeader">课程级别</label>
                 <input type="text" id="inputProjectLeader" class="form-control">
               </div>
-              <div class="form-group">
+              <div class="form-group" phx-hook="InfiniteScroll">
                 <label>课程详情</label>
                 <div id="editor">
                 </div>
@@ -49,9 +49,20 @@ defmodule AddCourseComponent do
                 <label for="inputProjectLeader">课程单价</label>
                 <input type="text" id="inputProjectLeader" class="form-control">
               </div>
-              <div class="form-group">
+              <div class="form-group" phx-hook="uploadImage">
                 <label for="inputProjectLeader">缩略图</label>
-                <input type="text" id="inputProjectLeader" class="form-control">
+                <div class="pic_list_box">
+                  <div class="pic_list">
+                    <div>
+                      <img width="80" height="80" alt srcset>
+                    </div>
+                  </div>
+                  <div class="div_imgall">
+                    <input type="file" accept="image/*" @change="changeImage($event)" class="input_flie" ref="file">
+                    <div class="div_shuline"></div>
+                    <div class="div_hengline"></div>
+                  </div>
+                </div>
               </div>
             </div>
             <!-- /.card-body -->
