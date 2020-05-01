@@ -40,10 +40,10 @@ defmodule AddCourseComponent do
                 <input type="text" id="inputProjectLeader" class="form-control">
               </div>
               <div class="form-group">
-                <label for="inputProjectLeader">课程详情</label>
+                <label>课程详情</label>
                 <div id="editor">
                 </div>
-                <input type="hidden" id="inputProjectLeader" class="form-control">
+                <input type="hidden" id="course_detail_input" class="form-control">
               </div>
               <div class="form-group">
                 <label for="inputProjectLeader">课程单价</label>

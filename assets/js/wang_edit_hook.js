@@ -5,9 +5,9 @@ function init_edit() {
   var editor = new E('#editor')
   // 编辑器的事件，每次改变会获取其html内容
   editor.customConfig.onchange = html => {
-    alert()
-    // this.editorContent = html;
-    // this.catchData(this.editorContent); // 把这个html通过catchData的方法传入父组件
+    console.log('html>>>>>>>', html)
+    let obj = document.querySelector('#course_detail_input')
+    obj.value = html
   };
   editor.customConfig.menus = [
     // 菜单配置
