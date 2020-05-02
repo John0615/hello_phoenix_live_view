@@ -15,7 +15,7 @@ defmodule HelloPhoenixLiveViewWeb.LiveForm do
     {:ok, socket}
   end
 
-  def handle_params(_, url, socket) do
+  def handle_params(_, _, socket) do
     # user = Accounts.get_user!(id)
     {:noreply,
      assign(socket, %{

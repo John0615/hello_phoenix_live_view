@@ -20,8 +20,12 @@
 
 
 let uploadImage = {
+
   mounted() {
-    // adminUpload({url: "UploadImg/Upload.php?save_path=store/picture&max_size=10000000"}, 'add-picture-box-goods_img')
+    document.querySelector('.input_flie').addEventListener('change', function () {
+      var filesList = document.querySelector('.input_flie').files;
+      console.log('lllllllllllll', filesList)
+    });
   }
 }
 export { uploadImage }

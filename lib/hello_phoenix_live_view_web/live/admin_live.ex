@@ -79,5 +79,4 @@ defmodule HelloPhoenixLiveViewWeb.AdminLive do
     socket = assign(socket, :count, count)
     { :noreply, socket }
   end
-
 end
