@@ -98,7 +98,7 @@ defmodule HelloPhoenixLiveView.Course do
       %Ecto.Changeset{source: %CourseList{}}
 
   """
-  def change_course_list(%CourseList{} = course_list) do
-    CourseList.changeset(course_list, %{})
+  def change_course_list(%CourseList{} = course_list, attrs \\ %{}) do
+    CourseList.changeset(course_list, attrs)
   end
 end

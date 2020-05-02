@@ -1,14 +1,14 @@
 defmodule AddCourseComponent do
   use Phoenix.LiveComponent
-  alias HelloPhoenixLiveView.Accounts
-  alias HelloPhoenixLiveView.Accounts.User
+  alias HelloPhoenixLiveView.Course
+  alias HelloPhoenixLiveView.Course.CourseList
 
 
   def mount(socket) do
     socket =
       socket
       |> assign(:show_page, "add_course")
-      |> assign(:changeset, Accounts.change_user(%User{}))
+      |> assign(:changeset, Course.change_course_list(%CourseList{}))
     {:ok, socket}
   end
 
@@ -17,11 +17,11 @@ defmodule AddCourseComponent do
   end
 
   def handle_event("validate_add_course", %{"user" => params}, socket) do
-    IO.inspect(params, label: "params1111222333444==params>>>", pretty: true)
+    IO.inspect(params, label: "validate_add_course>>>", pretty: true)
     changeset =
       socket.assigns.user
-      # |> Accounts.change_user(params)
-      # |> Map.put(:action, :update)
+      |> Course.change_course_list(params)
+      |> Map.put(:action, :update)
 
     {:noreply, assign(socket, changeset: changeset)}
   end
