@@ -16,7 +16,7 @@ defmodule AddCourseComponent do
     HelloPhoenixLiveViewWeb.AddCourseView.render("index.html", assigns)
   end
 
-  def handle_event("validate_add_course", params, socket) do
+  def handle_event("validate_add_course", %{"user" => params}, socket) do
     IO.inspect(params, label: "params1111222333444==params>>>", pretty: true)
     changeset =
       socket.assigns.user
