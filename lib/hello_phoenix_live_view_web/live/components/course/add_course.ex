@@ -28,14 +28,14 @@ defmodule AddCourseComponent do
   end
 
 
-  def handle_event("save", params, socket) do
+  def handle_event("save", %{"course_list" => params}, socket) do
     IO.inspect(params, label: "user_params<<<", pretty: true)
-    case Accounts.create_user(params) do
-      {:ok, user} ->
-        {:stop,
+    case Course.create_course_list(params) do
+      {:ok, _} ->
+        send self(), {:show_course_list_page, %{}}
+        {:noreply,
          socket
-         |> put_flash(:info, "User updated successfully.")
-        #  |> redirect(to: Routes.live_path(socket, HelloPhoenixLiveViewWeb.LiveForm, %User{}))
+         |> put_flash(:info, "create course successfully.")
         }
 
       {:error, %Ecto.Changeset{} = changeset} ->
