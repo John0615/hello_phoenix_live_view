@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="card card-primary" id="create_course_form">
-      <%= f = form_for @changeset, "#", [phx_change: :validate_add_course, phx_submit: :save, phx_hook: "SavedForm", multipart: true, "phx-target": "#create_course_form"] %>
+      <%= f = form_for @changeset, "#", [phx_change: :validate_add_course, phx_submit: :save, multipart: true, "phx-target": "#create_course_form"] %>
         <div class="card-body">
           <div class="form-group">
             <%= label f, :课程名称 %>
@@ -28,9 +28,9 @@
             <%= text_input f, :course_level, class: "form-control" %>
             <%= error_tag f, :course_level %>
           </div>
-          <div class="form-group" phx-hook="InfiniteScroll">
+          <div class="form-group">
             <%= label f, :课程详情 %>
-            <div id="editor">
+            <div id="editor" phx-hook="InfiniteScroll">
             </div>
             <%= hidden_input f, :detail, class: "form-control" %>
             <%= error_tag f, :detail %>

@@ -38,6 +38,9 @@ function init_edit() {
 let wang_edit_hook = {
   mounted() {
     init_edit()
+  },
+  updated() {
+    init_edit()
   }
 }
 export { wang_edit_hook }
