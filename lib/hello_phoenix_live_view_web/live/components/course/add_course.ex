@@ -9,6 +9,7 @@ defmodule AddCourseComponent do
       socket
       |> assign(:show_page, "add_course")
       |> assign(:changeset, Course.change_course_list(%CourseList{}))
+      |> assign(:course_list, %CourseList{})
     {:ok, socket}
   end
 
@@ -16,10 +17,10 @@ defmodule AddCourseComponent do
     HelloPhoenixLiveViewWeb.AddCourseView.render("index.html", assigns)
   end
 
-  def handle_event("validate_add_course", %{"user" => params}, socket) do
-    IO.inspect(params, label: "validate_add_course>>>", pretty: true)
+  def handle_event("validate_add_course", %{"course_list" => params}, socket) do
+    IO.inspect(socket.assigns, label: "validate_add_course>>>", pretty: true)
     changeset =
-      socket.assigns.user
+      socket.assigns.course_list
       |> Course.change_course_list(params)
       |> Map.put(:action, :update)
 
