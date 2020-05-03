@@ -18,7 +18,7 @@ defmodule AddCourseComponent do
   end
 
   def handle_event("validate_add_course", %{"course_list" => params}, socket) do
-    IO.inspect(socket.assigns, label: "validate_add_course>>>", pretty: true)
+    IO.inspect(params, label: "validate_add_course>>>", pretty: true)
     changeset =
       socket.assigns.course_list
       |> Course.change_course_list(params)

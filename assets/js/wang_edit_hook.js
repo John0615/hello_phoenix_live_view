@@ -6,8 +6,7 @@ function init_edit() {
   // 编辑器的事件，每次改变会获取其html内容
   editor.customConfig.onchange = html => {
     console.log('html>>>>>>>', html)
-    let obj = document.querySelector('#course_detail_input')
-    obj.value = html
+    document.querySelector('#course_list_detail').value = html
   };
   editor.customConfig.menus = [
     // 菜单配置
@@ -37,10 +36,10 @@ function init_edit() {
 
 let wang_edit_hook = {
   mounted() {
-    init_edit()
+    // init_edit()
   },
   updated() {
-    init_edit()
+    // init_edit()
   }
 }
 export { wang_edit_hook }

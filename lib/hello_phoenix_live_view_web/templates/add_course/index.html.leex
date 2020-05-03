@@ -1,68 +1,67 @@
-<div class="row">
-  <div class="col-md-12">
-    <div class="card card-primary" id="create_course_form">
-      <%= f = form_for @changeset, "#", [phx_change: :validate_add_course, phx_submit: :save, multipart: true, "phx-target": "#create_course_form"] %>
-        <div class="card-body">
-          <div class="form-group">
-            <%= label f, :课程名称 %>
-            <%= text_input f, :course_name, class: "form-control" %>
-            <%= error_tag f, :course_name %>
-          </div>
-          <div class="form-group">
-            <%= label f, :课程简介 %>
-            <%= textarea f, :desc, class: "form-control", rows: 4 %>
-            <%= error_tag f, :desc %>
-          </div>
-          <div class="form-group">
-            <%= label f, :课程类型 %>
-            <%= select f, :course_type,["一对一": "1", "小班": "2", "免费": "3"], prompt: "请选择", class: "form-control custom-select" %>
-            <%= error_tag f, :course_type %>
-          </div>
-          <div class="form-group">
-            <%= label f, :课时 %>
-            <%= text_input f, :class_hour, class: "form-control" %>
-            <%= error_tag f, :class_hour %>
-          </div>
-          <div class="form-group">
-            <%= label f, :课程级别 %>
-            <%= text_input f, :course_level, class: "form-control" %>
-            <%= error_tag f, :course_level %>
-          </div>
-          <div class="form-group">
-            <%= label f, :课程详情 %>
-            <div id="editor" phx-hook="InfiniteScroll">
+<%= f = form_for @changeset, "#", [phx_change: :validate_add_course, phx_submit: :save, multipart: true, "phx-target": "#create_course_form"] %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-primary" id="create_course_form">
+          <div class="card-body">
+            <div class="form-group">
+              <%= label f, :课程名称 %>
+              <%= text_input f, :course_name, class: "form-control", "phx-debounce": "2000" %>
+              <%= error_tag f, :course_name %>
             </div>
-            <%= hidden_input f, :detail, class: "form-control" %>
-            <%= error_tag f, :detail %>
-          </div>
-          <div class="form-group">
-            <%= label f, :课程单价 %>
-            <%= text_input f, :price, class: "form-control" %>
-            <%= error_tag f, :price %>
-          </div>
-          <!--<div class="form-group" phx-hook="uploadImage">
-            <label for="inputProjectLeader">缩略图</label>
-            <div class="pic_list_box">
-              <div class="pic_list">
-                <div>
-                  <img width="80" height="80" alt srcset>
+            <div class="form-group">
+              <%= label f, :课程简介 %>
+              <%= textarea f, :desc, class: "form-control", rows: 4,  "phx-debounce": "2000" %>
+              <%= error_tag f, :desc %>
+            </div>
+            <div class="form-group">
+              <%= label f, :课程类型 %>
+              <%= select f, :course_type,["一对一": "1", "小班": "2", "免费": "3"], prompt: "请选择", class: "form-control custom-select",  "phx-debounce": "2000" %>
+              <%= error_tag f, :course_type %>
+            </div>
+            <div class="form-group">
+              <%= label f, :课时 %>
+              <%= text_input f, :class_hour, class: "form-control",  "phx-debounce": "2000" %>
+              <%= error_tag f, :class_hour %>
+            </div>
+            <div class="form-group">
+              <%= label f, :课程级别 %>
+              <%= text_input f, :course_level, class: "form-control",  "phx-debounce": "2000" %>
+              <%= error_tag f, :course_level %>
+            </div>
+            <!--<div class="form-group">
+              <%= label f, :课程详情 %>
+              <div id="editor" phx-hook="InfiniteScroll"></div>
+              <%= hidden_input f, :detail, class: "form-control" %>
+              <%= error_tag f, :detail %>
+            </div>-->
+            <div class="form-group">
+              <%= label f, :课程单价 %>
+              <%= text_input f, :price, class: "form-control",  "phx-debounce": "2000" %>
+              <%= error_tag f, :price %>
+            </div>
+            <!--<div class="form-group" phx-hook="uploadImage">
+              <label for="inputProjectLeader">缩略图</label>
+              <div class="pic_list_box">
+                <div class="pic_list">
+                  <div>
+                    <img width="80" height="80" alt srcset>
+                  </div>
+                </div>
+                <div class="div_imgall" phx-hook="uploadImage">
+                  <%= file_input f, :thumbnail, class: "input_flie", accept: "image/*" %>
+                  <div class="div_shuline"></div>
+                  <div class="div_hengline"></div>
                 </div>
               </div>
-              <div class="div_imgall" phx-hook="uploadImage">
-                <%= file_input f, :thumbnail, class: "input_flie", accept: "image/*" %>
-                <div class="div_shuline"></div>
-                <div class="div_hengline"></div>
-              </div>
-            </div>
-          </div>-->
-        </div>
-      </form>
+            </div>-->
+          </div>
+      </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-12">
-    <a href="#" class="btn btn-secondary">Cancel</a>
-    <input type="submit" value="Create new Porject" class="btn btn-success float-right">
+  <div class="row">
+    <div class="col-12">
+      <%= submit "提交", phx_disable_with: "保存中...", class: "btn btn-success float-right" %>
+    </div>
   </div>
-</div>
+</form>
+
