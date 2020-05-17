@@ -2,7 +2,7 @@ defmodule Nav do
   use Phoenix.LiveComponent
 
   def render(assigns) do
-    HelloPhoenixLiveViewWeb.NavView.render("index.html", assigns)
+    HelloPhoenixLiveViewWeb.AdminLiveView.render("nav.html", assigns)
   end
 
 

@@ -7,7 +7,7 @@ defmodule DashBoard do
   end
 
   def render(assigns) do
-    HelloPhoenixLiveViewWeb.DashBoardView.render("index.html", assigns)
+    HelloPhoenixLiveViewWeb.AdminLiveView.render("dash_board.html", assigns)
   end
 
 

@@ -14,7 +14,7 @@ defmodule AddCourseComponent do
   end
 
   def render(assigns) do
-    HelloPhoenixLiveViewWeb.AddCourseView.render("index.html", assigns)
+    HelloPhoenixLiveViewWeb.CourseView.render("add_course.html", assigns)
   end
 
   def handle_event("validate_add_course", %{"course_list" => params}, socket) do

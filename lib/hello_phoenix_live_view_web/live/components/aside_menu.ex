@@ -12,7 +12,7 @@ defmodule AsideMenu do
   end
 
   def render(assigns) do
-    HelloPhoenixLiveViewWeb.AsideMenuView.render("index.html", assigns)
+    HelloPhoenixLiveViewWeb.AdminLiveView.render("aside_menu.html", assigns)
   end
 
   def handle_event("select_menu", params, socket) do
