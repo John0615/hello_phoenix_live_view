@@ -1,4 +1,4 @@
-defmodule DashboardComponent do
+defmodule DashBoard do
   use Phoenix.LiveComponent
   alias HelloPhoenixLiveView.Accounts
 
@@ -7,9 +7,7 @@ defmodule DashboardComponent do
   end
 
   def render(assigns) do
-    ~L"""
-      <p style="text-align: center;">后台管理系统</p>
-    """
+    HelloPhoenixLiveViewWeb.DashBoardView.render("index.html", assigns)
   end
 
 

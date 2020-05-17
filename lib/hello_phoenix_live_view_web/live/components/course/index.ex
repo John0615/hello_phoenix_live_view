@@ -1,4 +1,4 @@
-defmodule CourseComponent do
+defmodule Course do
   use Phoenix.LiveComponent
   alias HelloPhoenixLiveView.Course
 
@@ -10,16 +10,7 @@ defmodule CourseComponent do
   end
 
   def render(assigns) do
-    ~L"""
-      <section class="content">
-        <%=if @course_status.show_page=="add_course" do %>
-        <%= live_component @socket, AddCourseComponent, id: :create_course %>
-        <%=end %>
-        <%=if @course_status.show_page=="course_list" do %>
-        <%= live_component @socket, CourseListComponent, id: :course_list %>
-        <%=end %>
-      </section>
-    """
+    HelloPhoenixLiveViewWeb.CourseView.render("index.html", assigns)
   end
 
 
